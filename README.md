@@ -21,12 +21,12 @@ This repository contains the `docker-compose.yml` file for launching a full-feat
 
 ## 🧩 Included Services
 
-- **Security Client** – Returns an access token from Keycloak via an internal client using password credentials flow  
-- **API Gateway** – Routes requests & handles authentication (JWT)  
-- **Product Service** – Manages product catalog  
-- **Order Service** – Processes orders  
-- **Inventory Service** – Tracks stock levels  
-- **Notification Service** – Sends email notifications  
+- **Security Client** (https://github.com/Mitohondriyaa/security-client) – Returns an access token from Keycloak via an internal client using password credentials flow
+- **API Gateway** (https://github.com/Mitohondriyaa/api-gateway) – Routes requests & handles authentication (JWT)
+- **Product Service** (https://github.com/Mitohondriyaa/product-service) – Manages product catalog
+- **Order Service** (https://github.com/Mitohondriyaa/order-service) – Processes orders 
+- **Inventory Service** (https://github.com/Mitohondriyaa/inventory-service) – Tracks stock levels  
+- **Notification Service** (https://github.com/Mitohondriyaa/notification-service) – Sends email notifications  
 - **Keycloak** – Provides authentication & authorization  
 - **Kafka + Schema Registry** – Enables asynchronous communication  
 - **Kafka UI** – Provides a web interface for monitoring and managing Kafka topics and consumers
