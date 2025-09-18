@@ -22,16 +22,16 @@ This repository contains the `docker-compose.yml` file for launching a full-feat
 ## 🧩 Included Services
 
 - **Security Client** (https://github.com/Mitohondriyaa/security-client) – Returns an access token from Keycloak via an internal client using password credentials flow
-- **API Gateway** (https://github.com/Mitohondriyaa/api-gateway) – Routes requests & handles authentication (JWT)
-- **Product Service** (https://github.com/Mitohondriyaa/product-service) – Manages product catalog
-- **Order Service** (https://github.com/Mitohondriyaa/order-service) – Processes orders 
-- **Inventory Service** (https://github.com/Mitohondriyaa/inventory-service) – Tracks stock levels  
-- **Notification Service** (https://github.com/Mitohondriyaa/notification-service) – Sends email notifications  
-- **Keycloak** – Provides authentication & authorization  
-- **Kafka + Schema Registry** – Enables asynchronous communication  
-- **Kafka UI** – Provides a web interface for monitoring and managing Kafka topics and consumers
-- **Redis** – Provides idempotency & caching  
-- **MySQL / MongoDB** – Store persistent data  
+- **API Gateway** (https://github.com/Mitohondriyaa/api-gateway) – Routes requests and handles authentication (JWT)
+- **Product Service** (https://github.com/Mitohondriyaa/product-service) – Manages the product catalog
+- **Order Service** (https://github.com/Mitohondriyaa/order-service) – Processes orders
+- **Inventory Service** (https://github.com/Mitohondriyaa/inventory-service) – Tracks inventory levels
+- **Notification Service** (https://github.com/Mitohondriyaa/notification-service) – Sends email notifications
+- **Keycloak** (https://www.keycloak.org/) – Provides authentication and authorization
+- **Kafka + Schema Registry** (https://kafka.apache.org/) – Enables asynchronous communication
+- **Kafka UI** (https://www.kafkaui.com/) – Web interface for monitoring and managing Kafka topics and consumers
+- **Redis** (https://redis.io/) – Handles caching and idempotency
+- **MySQL / MongoDB** (https://www.mysql.com/, https://www.mongodb.com/) – Store persistent data 
 
 ## ⚙️ Environment Variables
 
