@@ -244,7 +244,7 @@ services:
       - "8084:8084"
     environment:
       CLIENT_ID: security-client
-      CLIENT_SECRET: vCSZ0cAynvIvpsxbWvFQg1UVBsyc8AXb
+      CLIENT_SECRET: DWK8rsSC9c1qmrbphaLqyaqU03peyyyG
       USER_LOGIN: test-user
       USER_PASSWORD: 12345
       AUTH_SERVER_URL: http://keycloak:8080
