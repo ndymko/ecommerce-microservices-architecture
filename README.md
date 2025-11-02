@@ -21,12 +21,12 @@ This repository contains the `docker-compose.yml` file for launching a full-feat
 
 ## 🧩 Included Services
 
-- **Security Client** (https://github.com/Mitohondriyaa/security-client) – Returns an access token from Keycloak via an internal client using password credentials flow
-- **API Gateway** (https://github.com/Mitohondriyaa/api-gateway) – Routes requests and handles authentication (JWT)
-- **Product Service** (https://github.com/Mitohondriyaa/product-service) – Manages the product catalog
-- **Order Service** (https://github.com/Mitohondriyaa/order-service) – Processes orders
-- **Inventory Service** (https://github.com/Mitohondriyaa/inventory-service) – Tracks inventory levels
-- **Notification Service** (https://github.com/Mitohondriyaa/notification-service) – Sends email notifications
+- **Security Client** (https://github.com/ndymko/security-client) – Returns an access token from Keycloak via an internal client using password credentials flow
+- **API Gateway** (https://github.com/ndymko/api-gateway) – Routes requests and handles authentication (JWT)
+- **Product Service** (https://github.com/ndymko/product-service) – Manages the product catalog
+- **Order Service** (https://github.com/ndymko/order-service) – Processes orders
+- **Inventory Service** (https://github.com/ndymko/inventory-service) – Tracks inventory levels
+- **Notification Service** (https://github.com/ndymko/notification-service) – Sends email notifications
 - **Keycloak** (https://www.keycloak.org/) – Provides authentication and authorization
 - **Kafka + Schema Registry** (https://kafka.apache.org/) – Enables asynchronous communication
 - **Kafka UI** (https://www.kafkaui.com/) – Web interface for monitoring and managing Kafka topics and consumers
@@ -174,7 +174,7 @@ Thank you for your order!
 Your order #7d5cdd00-9540-4420-9437-35259ca5066b has been placed successfully!
 
 Best regards,
-Mitohondriyaa
+Nikita Dymko
 ```
 
 ## 🚀 Getting Started
@@ -182,7 +182,7 @@ Mitohondriyaa
 > Make sure you have [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) installed.
 
 ```bash
-git clone https://github.com/Mitohondriyaa/ecommerce-microservices-architecture
+git clone https://github.com/ndymko/ecommerce-microservices-architecture
 cd ecommerce-microservices-architecture
 docker-compose up -d
 ```
