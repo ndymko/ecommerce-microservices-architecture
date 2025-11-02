@@ -120,7 +120,9 @@ This repository contains the `docker-compose.yml` file for launching a full-feat
 
 ### 1. Get access token
 
-Send a GET request to `http://localhost:8084/api/access-token`
+Send a GET request to `http://localhost:8084/api/access-token`  
+The response will be a JWT token, which can be used for authorization in subsequent requests:
+`Authorization: Bearer <JWT_TOKEN>`
 
 
 ### 2. Create a product
