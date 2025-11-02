@@ -1,6 +1,6 @@
 # E-Commerce Microservices Architecture
 
-This repository contains the `docker-compose.yml` file for launching a full-featured e-commerce platform using prebuilt microservices hosted on Docker Hub.
+This repository contains the `docker-compose.yml` file for launching a full-featured e-commerce platform using prebuilt microservices hosted on Docker Hub
 
 ## 🏗️ Architecture Overview
 
@@ -116,55 +116,73 @@ This repository contains the `docker-compose.yml` file for launching a full-feat
 | `AUTH_SERVER_URL`    | Keycloak auth server URL       | `http://keycloak:8080`                 |
 | `AUTH_SERVER_REALM`  | Keycloak realm               | `microservices-realm`                  |
 
-### ⚡ Example Workflow
+### ⚡ Example Workflow with curl
 
 ### 1. Get access token
 
-Send a GET request to `http://localhost:8084/api/access-token`  
-The response will be a JWT token, which can be used for authorization in subsequent requests:
-`Authorization: Bearer <JWT_TOKEN>`
+```bash
+curl -X GET http://localhost:8084/api/access-token
+```
 
+The response will be a JWT token, which can be used for authorization in subsequent requests: `Authorization: Bearer <JWT_TOKEN>`  
+Replace `<JWT_TOKEN>` in the following requests with the token you received from this step
+
+> **Note:** The JWT token is valid for a limited time (usually a few minutes). 
+> If your requests start failing with `401 Unauthorized`, simply request a new token.
 
 ### 2. Create a product
 
-Send a POST request to `http://localhost:9000/api/product` with JSON body:
-
-```json
-{
-  "name": "some name",
-  "description": "some description",
-  "price": 100
-}
+```bash
+curl -X POST http://localhost:9000/api/product \
+-H "Authorization: Bearer <JWT_TOKEN>" \
+-H "Content-Type: application/json" \
+-d '{"name": "Laptop", "description": "Some Laptop", "price": 1000}'
 ```
+
+After it you can see the following answer:
+
+```bash
+{"id":"69073fa88839ee66b29034cc","name":"Laptop","description":"Some Laptop","price":1000}
+```
+
+Remember the `id`
 
 ### 3. Increase product quantity in Inventory Service
 
-After product creation, an inventory record with quantity 0 is automatically created via Kafka.  
-Next, send a PUT request to `http://localhost:9000/api/inventory` with JSON body:
+After product creation, an inventory record with quantity 0 is automatically created via Kafka
 
-```json
-{
-    "productId": "892hf92f23jf32qf",
-    "quantity": 100
-}
+```bash
+curl -X PUT http://localhost:9000/api/inventory \
+-H "Authorization: Bearer <JWT_TOKEN>" \
+-H "Content-Type: application/json" \
+-d '{"productId": "69073fa88839ee66b29034cc", "quantity": 100}'
+```
+
+The answer will be:
+
+```bash
+{"id":3,"productId":"69073fa88839ee66b29034cc","quantity":100}
 ```
 
 ### 4. Place order
 
-Send a POST request to `http://localhost:9000/api/order` with JSON body to order products:
+```bash
+curl -X POST http://localhost:9000/api/order \
+-H "Authorization: Bearer <JWT_TOKEN>" \
+-H "Content-Type: application/json" \
+-d '{"productId": "69073fa88839ee66b29034cc", "quantity": 10}'
+```
 
-```json
-{
-    "productId": "892hf92f23jf32qf",
-    "quantity": 10
-}
+The answer:
+
+```bash
+{"id":2,"orderNumber":"7ba5eb19-2106-4d0e-8f3e-ae03e3ecc63f","productId":"69073fa88839ee66b29034cc","price":10000,"quantity":10,"userDetails":{"email":"test@example.com","firstName":"Alexander","lastName":"Sidorov"}}
 ```
 
 ### 5. Receive notification
 
-After the order is successfully processed and inventory is reserved, Notification Service sends an email confirmation to the customer.
-
-The notification is triggered automatically based on Kafka events.
+After the order is successfully processed and inventory is reserved, Notification Service sends an email confirmation to the customer  
+The notification is triggered automatically based on Kafka events
 
 Example email content:
 
@@ -181,7 +199,7 @@ Nikita Dymko
 
 ## 🚀 Getting Started
 
-> Make sure you have [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) installed.
+> Make sure you have [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) installed
 
 ```bash
 git clone https://github.com/ndymko/ecommerce-microservices-architecture
