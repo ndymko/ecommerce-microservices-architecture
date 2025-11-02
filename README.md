@@ -138,7 +138,7 @@ Send a POST request to `http://localhost:9000/api/product` with JSON body:
 ### 3. Increase product quantity in Inventory Service
 
 After product creation, an inventory record with quantity 0 is automatically created via Kafka.  
-Next, send a POST request to `http://localhost:9000/api/inventory` with JSON body:
+Next, send a PUT request to `http://localhost:9000/api/inventory` with JSON body:
 
 ```json
 {
