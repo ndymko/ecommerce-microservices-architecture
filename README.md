@@ -187,12 +187,6 @@ cd ecommerce-microservices-architecture
 docker-compose up -d
 ```
 
-If you encounter permission issues with Kafka data directories after running Docker Compose, run:
-
-```bash
-sudo chown -R 1001:1001 ./kafka-1-data ./kafka-2-data
-```
-
 ## 📚 API Documentation
 
 Access the full Swagger documentation through the API Gateway:
